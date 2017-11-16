@@ -1,13 +1,17 @@
 import overpy
 
 
-def query_buildings(buildings):
+def query_buildings(area, buildings):
+    """Query OSM for buildings in the proper area, and get all their nodes.
+
+    buildings = [(number, direction, street),]"""
     q = """
     [timeout:25];
+    area[name="{}"];
     (
       {}
-       );
-       (._;>;);
+       )->.x1;
+       (way.x1[building];>;);
     out body;
     """
     query_format = 'way["addr:housenumber"="{}"]["addr:street:name"="{}"]["addr:street:prefix"="{}"];'
@@ -16,11 +20,11 @@ def query_buildings(buildings):
         queries.append(query_format.format(number, street, direction))
 
     api = overpy.Overpass()
-    return api.query(q.format("\n".join(queries)))
+    return api.query(q.format(area, "\n".join(queries)))
 
 
 def main():
-    nodes = query_buildings([(1917, "West","Berwyn"),
+    nodes = query_buildings("Chicago",[(1917, "West","Berwyn"),
                             (1911,"West","Berwyn")]).ways[0].get_nodes()
 
     for n in nodes:
