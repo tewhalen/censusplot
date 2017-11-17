@@ -6,16 +6,21 @@ import math
 def split_circle(ctx, x, y, radius, fill_color_a, fill_color_b):
     ctx.save()
     ctx.move_to(x,y)
-    ctx.arc(x, y, radius, math.pi/2, 3*math.pi/2)
-    ctx.line_to(x,y+radius)
-    ctx.set_source(cairo.SolidPattern(*fill_color_a))
-    ctx.fill()
+    if fill_color_a == fill_color_b:
+        ctx.arc(x, y, radius, 0, 2*math.pi)
+        ctx.set_source(cairo.SolidPattern(*fill_color_a))
+        ctx.fill()
+    else:
+        ctx.arc(x, y, radius, math.pi/2, 3*math.pi/2)
+        ctx.line_to(x,y+radius)
+        ctx.set_source(cairo.SolidPattern(*fill_color_a))
+        ctx.fill()
 
-    ctx.move_to(x,y)
-    ctx.arc(x,y, radius, 3*math.pi/2, math.pi/2)
-    ctx.line_to(x,y-radius)
-    ctx.set_source(cairo.SolidPattern(*fill_color_b))
-    ctx.fill()
+        ctx.move_to(x,y)
+        ctx.arc(x,y, radius, 3*math.pi/2, math.pi/2)
+        ctx.line_to(x,y-radius)
+        ctx.set_source(cairo.SolidPattern(*fill_color_b))
+        ctx.fill()
 
     outline = True
 
