@@ -4,7 +4,7 @@ import overpy
 def query_buildings(area, buildings):
     """Query OSM for buildings in the proper area, and get all their nodes.
 
-    buildings = [(number, prefix, street),]"""
+    buildings = [(housenumber, prefix, street),]"""
     q = """
     [timeout:25];
     area[name="{}"];
@@ -16,9 +16,10 @@ def query_buildings(area, buildings):
     """
     query_format = 'way["addr:housenumber"="{}"]["addr:street:name"="{}"]["addr:street:prefix"="{}"];'
     queries = []
-    for number, prefix, street in buildings:
-        queries.append(query_format.format(number, street, prefix))
-
+    print(buildings)
+    for housenumber, prefix, street in buildings:
+        queries.append(query_format.format(housenumber, street, prefix))
+    print(queries)
     api = overpy.Overpass()
     return api.query(q.format(area, "\n".join(queries)))
 
