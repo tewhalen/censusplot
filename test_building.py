@@ -1,66 +1,18 @@
 import cairocffi as cairo
-import math, itertools
+import math, itertools, csv, collections
 from drawutils import grid_points
+
+from blockplot import plot_household
+import osm_building
 
 def lat2y(a):
     "Spherical Pseudo-Mercator projection"
     return 180.0/math.pi*math.log(math.tan(math.pi/4.0+a*(math.pi/180.0)/2.0))
 
 
-TEST_DATA = {1903:((41.9776029, -87.6767852),
-(41.9776564, -87.6767865),
-(41.9776714, -87.6767698),
-(41.9776893, -87.6767714),
-(41.977688, -87.676788),
-(41.9777511, -87.676791),
-(41.9777523, -87.6767561),
-(41.9777577, -87.676745),
-(41.9777576, -87.6767247),
-(41.9777507, -87.6767101),
-(41.9776052, -87.6767061),
-(41.9776029, -87.6767852)),
-1907:((41.9776006, -87.6768643),
-(41.9776734, -87.6768672),
-(41.9776803, -87.67688),
-(41.9777681, -87.6768828),
-(41.9777692, -87.6768331),
-(41.9777555, -87.6768314),
-(41.9777567, -87.6768112),
-(41.9777471, -87.6768002),
-(41.977673, -87.676801),
-(41.977662, -87.6767938),
-(41.977603, -87.6767907),
-(41.9776006, -87.6768643)),
-1911:((41.9776182, -87.6770608),
-(41.9777664, -87.6770648),
-(41.9777674, -87.6769876),
-(41.9776411, -87.6769834),
-(41.9776399, -87.6770073),
-(41.9776193, -87.6770075),
-(41.9776182, -87.6770608)),
-1917:((41.9776508, -87.6772462),
-(41.9777442, -87.6772489),
-(41.9777464, -87.677168),
-(41.9776517, -87.6771653),
-(41.9776508, -87.6772462)),
-1916:((41.9780114, -87.6771929),
-(41.9780115, -87.6772149),
-(41.9780184, -87.6772222),
-(41.9780186, -87.6772498),
-(41.9780543, -87.6772513),
-(41.9780625, -87.6772604),
-(41.9781257, -87.6772616),
-(41.9781338, -87.6772505),
-(41.9781709, -87.6772519),
-(41.9781719, -87.6771839),
-(41.9780223, -87.6771799),
-(41.9780114, -87.6771929))}
 
-WIDTH, HEIGHT = 256, 256
-
-surface = cairo.PDFSurface ("test_building.pdf", WIDTH, HEIGHT)
-ctx = cairo.Context (surface)
-
+def coord_min(coord_set):
+    return (min(x[0] for x in coord_set), min(x[1] for x in coord_set))
 
 class Normer:
     def __init__(self, coord_set):
@@ -79,7 +31,17 @@ class Normer:
                   (lat2y(y) *  -1 - self.miny) / self.fact * new_range) for y,x in coords]
         return ncords
 
-def draw_building(normed):
+    def norm_single(self, pair, new_range):
+        return self.norm([pair], new_range)[0]
+
+def building_outlines(b_info):
+    outlines = {}
+    for w in b_info.ways:
+        key = (w.tags['addr:housenumber'], w.tags['addr:street:prefix'], w.tags['addr:street:name'])
+        outlines[key] = [(float(n.lat), float(n.lon)) for n in w.get_nodes()]
+    return outlines
+
+def draw_building(ctx, normed):
     ctx.save()
     ctx.move_to(*normed[0])
     for x,y in normed[1:]:
@@ -87,14 +49,52 @@ def draw_building(normed):
     ctx.set_line_width(0.025)
     ctx.set_source_rgb(0,0,0)
     ctx.stroke_preserve()
-    ctx.set_source_rgb(.9,.9,.9)
+    ctx.set_source_rgb(.95,.95,.95)
     ctx.fill()
     ctx.restore()
 
-normer = Normer(TEST_DATA.values())
-ctx.scale (WIDTH/10, HEIGHT/10) # Normalizing the canvas
+if __name__ == '__main__':
+    WIDTH, HEIGHT = 256, 256
 
-for addr, building in TEST_DATA.items():
-    draw_building(normer.norm(building, 10))
+    surface = cairo.PDFSurface ("test_building.pdf", WIDTH, HEIGHT)
+    ctx = cairo.Context (surface)
 
-grid_points(ctx)
+    # read csv
+    with open('berwynblocks.csv') as f:
+        reader = csv.DictReader(f)
+        raw_data = [row for row in reader]
+    info = collections.defaultdict(lambda: collections.defaultdict(list))
+    for row in raw_data:
+        info[(row['housenumber'], row['prefix'], row['street'])][row['household_id']].append(row)
+    print(info.keys())
+    # query OSM for the building outlines
+    building_info = osm_building.query_buildings('Chicago',info.keys())
+    outlines = building_outlines(building_info)
+    normer = Normer(outlines.values())
+    ctx.scale (WIDTH/10, HEIGHT/10) # Normalizing the canvas
+
+    for addr, building in outlines.items():
+        draw_building(ctx, normer.norm(building, 10))
+
+
+    glyph_groups = []
+    for key, choice in info.items():
+        ctx.push_group()
+        print(key)
+        plot_household(ctx, choice)
+        group = ctx.pop_group()
+        m = group.get_matrix()
+        q1 = coord_min(normer.norm(outlines[key],10))
+        print(q1)
+        m.scale(3.4,3.4)
+        m.translate(-q1[0]+.1,-q1[1]+.1)
+
+
+        group.set_matrix(m)
+        glyph_groups.append(group)
+    for group in glyph_groups:
+        ctx.set_source(group)
+        ctx.paint()
+
+
+    #grid_points(ctx)
