@@ -61,8 +61,8 @@ def rounded_rect(cr, x, y, width, height):
 
 def grid_points(cr):
     """helpful for debugging"""
-    for x in range(6):
-        for y in range(6):
+    for x in range(10):
+        for y in range(10):
             cr.arc(x, y, 0.025, 0, 2*math.pi)
             cr.set_source_rgb(0,0,0)
             cr.fill()

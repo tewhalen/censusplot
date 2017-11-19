@@ -1,0 +1,115 @@
+housenumber,prefix,street,area,household_id,last_name,first_name,birthplace,birthplace_father,birthplace_mother
+1901,West,Berwyn,Chicago,1,Jepson,Peter,Sweden,Sweden,Sweden
+1901,West,Berwyn,Chicago,1,Jepson,Emma,Sweden,Sweden,Sweden
+1901,West,Berwyn,Chicago,1,Jepson,Edna,United States,Sweden,Sweden
+1901,West,Berwyn,Chicago,2,Wiche,Frank,Sweden,Sweden,Sweden
+1901,West,Berwyn,Chicago,2,Wiche,Jemmie,Sweden,Sweden,Sweden
+1901,West,Berwyn,Chicago,2,Wiche,Irene,United States,Sweden,Sweden
+1901,West,Berwyn,Chicago,2,Wiche,Fred,United States,Sweden,Sweden
+1903,West,Berwyn,Chicago,1,Drake,Alfred,England,England,England
+1903,West,Berwyn,Chicago,1,Drake,Inga,Norway,Norway,Norway
+1903,West,Berwyn,Chicago,1,Drake,Conrad,United States,England,Norway
+1903,West,Berwyn,Chicago,1,Drake,Alida,United States,England,Norway
+1903,West,Berwyn,Chicago,2,Rasmussen,Russel,United States,Norway,Norway
+1903,West,Berwyn,Chicago,2,Rasussen,Louise,United States,Germany,Germany
+1907,West,Berwyn,Chicago,1,Peterson,,Sweden,Sweden,Sweden
+1907,West,Berwyn,Chicago,1,Peterson,,Sweden,Sweden,Sweden
+1907,West,Berwyn,Chicago,1,Peterson,Esther,United States,Sweden,Sweden
+1907,West,Berwyn,Chicago,1,Peterson,Arfel,United States,Sweden,Sweden
+1907,West,Berwyn,Chicago,2,Carlson,Arthur,United States,Sweden,Sweden
+1907,West,Berwyn,Chicago,2,Carlson,Greta,United States,Sweden,Sweden
+1907,West,Berwyn,Chicago,2,Carlson,Shirley,United States,United States,United States
+1908,West,Farragut,Chicago,1,Lutsh,Peter,Luxembourg,Luxembourg,Luxembourg
+1908,West,Farragut,Chicago,1,Lutsh,Elizabeth,United States,Germany,Luxembourg
+1908,West,Farragut,Chicago,1,Nishouse,Josephine,United States,United States,United States
+1909,West,Berwyn,Chicago,1,Sundmacher,Fred,United States,Germany,Germany
+1909,West,Berwyn,Chicago,1,Sundmacher,Lena,Germany,Germany,Germany
+1909,West,Berwyn,Chicago,1,Sundmacher,Maren,United States,United States,Germany
+1909,West,Berwyn,Chicago,1,Sundmacher,Elizabeth,United States,United States,Germany
+1909,West,Berwyn,Chicago,2,Glazer,Fred,United States,United States,Germany
+1909,West,Berwyn,Chicago,2,Glazer,Alma,United States,Sweden,Sweden
+1909,West,Berwyn,Chicago,2,Glazer,Maria,United States,United States,United States
+1909,West,Berwyn,Chicago,2,Glazer,Robert,United States,United States,United States
+1910,West,Farragut,Chicago,1,Hisman,Lester,United States,United States,England
+1910,West,Farragut,Chicago,1,Hisman,Pearl,United States,United States,United States
+1910,West,Farragut,Chicago,1,Hisman,Harold,United States,United States,United States
+1910,West,Farragut,Chicago,1,Hisman,Charles,United States,United States,United States
+1910,West,Farragut,Chicago,1,Hisman,Anna,United States,United States,United States
+1910,West,Farragut,Chicago,2,Ballock,Howard,United States,Ireland,Ireland
+1910,West,Farragut,Chicago,2,Ballock,Louise,United States,Germany,United States
+1910,West,Farragut,Chicago,2,Ballock,Leroy,United States,United States,United States
+1910,West,Farragut,Chicago,2,Ballock,Wesley,United States,United States,United States
+1910,West,Farragut,Chicago,2,Ballock,Newton,United States,Ireland,Ireland
+1911,West,Berwyn,Chicago,1,Grant,Daniel,United States,United States,United States
+1911,West,Berwyn,Chicago,1,Grant,India,United States,United States,United States
+1911,West,Berwyn,Chicago,1,Grant,Kenneth,United States,United States,United States
+1911,West,Berwyn,Chicago,1,Grant,Bessie,Sweden,Sweden,Sweden
+1914,West,Farragut,Chicago,1,Hartmann,Joseph,United States,Germany,Germany
+1914,West,Farragut,Chicago,1,Hartmann,Margaret,United States,United States,United States
+1914,West,Farragut,Chicago,2,Splied,Oscar,Denmark,Denmark,Denmark
+1914,West,Farragut,Chicago,2,,Mathilda,Sweden,Sweden,Sweden
+1914,West,Farragut,Chicago,2,,Esther,United States,Denmark,Sweden
+1915,West,Berwyn,Chicago,1,Finch,Willam,United States,United States,United States
+1915,West,Berwyn,Chicago,1,Finch,Amalia,United States,Sweden,Sweden
+1915,West,Berwyn,Chicago,1,Finch,Dorothy,United States,United States,United States
+1916,West,Berwyn,Chicago,1,,,Sweden,Sweden,Sweden
+1916,West,Berwyn,Chicago,1,,,United States,Sweden,Sweden
+1916,West,Berwyn,Chicago,1,,,United States,United States,Sweden
+1916,West,Berwyn,Chicago,1,,,United States,United States,Sweden
+1916,West,Berwyn,Chicago,2,,,Sweden,Sweden,Sweden
+1916,West,Berwyn,Chicago,2,,,Sweden,Sweden,Sweden
+1917,West,Berwyn,Chicago,1,Liljeberg,John,Sweden,Sweden,Sweden
+1917,West,Berwyn,Chicago,1,Liljeberg,Eva,Sweden,Sweden,Sweden
+1917,West,Berwyn,Chicago,1,Liljeberg,Ragnar,Sweden,Sweden,Sweden
+1917,West,Berwyn,Chicago,1,Liljeberg,Nina,Sweden,Sweden,Sweden
+1920,West,Farragut,Chicago,1,Richer,Charles,United States,United States,United States
+1920,West,Farragut,Chicago,1,,,United States,United States,United States
+1920,West,Farragut,Chicago,1,,,United States,United States,United States
+1920,West,Farragut,Chicago,1,,,United States,United States,United States
+1920,West,Farragut,Chicago,2,Rogers,Edward,United States,Germany,United States
+1920,West,Farragut,Chicago,2,Rogers,Bertha,United States,United States,United States
+1925,West,Berwyn,Chicago,1,Simon,Michael,Luxembourg,Luxembourg,Luxembourg
+1925,West,Berwyn,Chicago,1,,Catherine,United States,Luxembourg,Luxembourg
+1925,West,Berwyn,Chicago,1,,Johann,United States,Luxembourg,United States
+1925,West,Berwyn,Chicago,1,,Nicholas,United States,Luxembourg,United States
+1925,West,Berwyn,Chicago,1,,Matthew,United States,Luxembourg,United States
+1925,West,Berwyn,Chicago,1,,Margaret,United States,Luxembourg,United States
+1925,West,Berwyn,Chicago,1,,Michael,United States,Luxembourg,United States
+1925,West,Berwyn,Chicago,1,,Louise,United States,Luxembourg,United States
+1925,West,Berwyn,Chicago,2,Nix,Nicholas,Luxembourg,Luxembourg,Luxembourg
+1927,West,Berwyn,Chicago,1,Eli,Alfonso,United States,United States,United States
+1927,West,Berwyn,Chicago,1,,Marie,United States,Ireland,Ireland
+1927,West,Berwyn,Chicago,1,,Mills,United States,United States,United States
+1927,West,Berwyn,Chicago,1,,Robert,United States,United States,United States
+1927,West,Berwyn,Chicago,1,,Marie,United States,United States,United States
+1929,West,Berwyn,Chicago,1,Holmes,John,Sweden,Sweden,Sweden
+1929,West,Berwyn,Chicago,1,Holmes,Anna,Sweden,Sweden,Sweden
+1929,West,Berwyn,Chicago,1,Holmes,Charles,Sweden,Sweden,Sweden
+1929,West,Berwyn,Chicago,1,Holmes,Esther,United States,Sweden,Sweden
+1929,West,Berwyn,Chicago,2,Holmes,Eric,Sweden,Sweden,Sweden
+1929,West,Berwyn,Chicago,2,Holmes,Martha,United States,Germany,Germany
+1929,West,Berwyn,Chicago,2,Holmes,Mabel,United States,Sweden,United States
+1929,West,Berwyn,Chicago,2,Holmes,Oliver,United States,Sweden,United States
+1929,West,Berwyn,Chicago,2,Holmes,Raymond,United States,Sweden,United States
+1929,West,Berwyn,Chicago,2,Holmes,Dorothy,United States,Sweden,United States
+1929,West,Berwyn,Chicago,2,Holmes,Gladya,United States,Sweden,United States
+1929,West,Berwyn,Chicago,2,Holmes,Elenor,United States,Sweden,United States
+1929,West,Berwyn,Chicago,3,Pearson,Edward,Sweden,Sweden,Sweden
+1929,West,Berwyn,Chicago,3,Pearson,Irene,Finland,Finland,Finland
+1929,West,Berwyn,Chicago,3,Pearson,Florence,United States,Sweden,Finland
+1929,West,Berwyn,Chicago,3,Pearson,Harold,United States,Sweden,Finland
+1931,West,Berwyn,Chicago,1,Bauer,Harry,United States,Germany,Germany
+1931,West,Berwyn,Chicago,1,Bauer,Leora,United States,Germany,Germany
+1931,West,Berwyn,Chicago,1,Bauer,Bernice,United States,United States,United States
+1931,West,Berwyn,Chicago,2,Paliske,William,United States,Germany,Germany
+1931,West,Berwyn,Chicago,2,Paliske,Alana,United States,Germany,Germany
+1931,West,Berwyn,Chicago,2,Paliske,Lester,United States,United States,United States
+1931,West,Berwyn,Chicago,2,Paliske,William,United States,United States,United States
+1931,West,Berwyn,Chicago,3,Horning,Fred,United States,United States,Sweden
+1931,West,Berwyn,Chicago,3,Horning,Hattie,Sweden,Sweden,Sweden
+1965,West,Berwyn,Chicago,1,Hallberg,Albin,Sweden,Sweden,Sweden
+1965,West,Berwyn,Chicago,1,Hallberg,Olivia,Sweden,Sweden,Sweden
+1965,West,Berwyn,Chicago,1,Hallberg,Dina,United States,Sweden,Sweden
+5255,North,Wolcott,Chicago,1,Lindstrond,Carl,Sweden,Sweden,Sweden
+5255,North,Wolcott,Chicago,1,Lindstrond,Emma,Sweden,Sweden,Sweden
+5255,North,Wolcott,Chicago,1,Lindstrond,Clarence,United States,Sweden,Sweden

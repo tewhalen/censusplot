@@ -16,13 +16,25 @@ def query_buildings(area, buildings):
     """
     query_format = 'way["addr:housenumber"="{}"]["addr:street:name"="{}"]["addr:street:prefix"="{}"];'
     queries = []
-    print(buildings)
+    #print(buildings)
     for housenumber, prefix, street in buildings:
         queries.append(query_format.format(housenumber, street, prefix))
-    print(queries)
+    #print(queries)
     api = overpy.Overpass()
     return api.query(q.format(area, "\n".join(queries)))
 
+def query_streets(bbox):
+    """query osm for ways in the bbox"""
+    q = """
+    [timeout:25][bbox:{},{},{},{}];
+    (
+    way[highway][!service];
+    );
+
+    out geom;
+    """
+    api = overpy.Overpass()
+    return api.query(q.format(*bbox))
 
 def main():
     nodes = query_buildings("Chicago",[(1917, "West","Berwyn"),

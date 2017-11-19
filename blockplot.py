@@ -19,13 +19,15 @@ MAPX = {'Norway':[(1,0,0),(1,.5,.5),(1,.75,.75)],
         "England": [(1,.569,.302),(1,.691,.5),(1,.768,.625)],
         'Finland': [(1,.253,1),(1,.468,1),(1,.67,1)],
         'Ireland':[(0,1,0),(.5,1,.5),(.75,1,.75)],
-        'Luxembourg':[(.78,.78,.19),(.78,.78,.4),(.78,.78,.6)]}
+        'Luxembourg':[(.78,.78,.19),(.78,.78,.4),(.78,.78,.6)],
+        'Denmark':[(1,0,1),(1,.5,1),(1,.75,1)]}
 
 def get_colors(ethn):
+    default = ((.9,.9,.9), (.9,.9,.9))
     if ethn[0] != 'United States':
-        return (MAPX[ethn[0]][0],MAPX[ethn[0]][0])
+        return (MAPX.get(ethn[0], default)[0],MAPX.get(ethn[0], default)[0])
     else:
-        return (MAPX[ethn[1]][1], MAPX[ethn[2]][1])
+        return (MAPX.get(ethn[1], default)[1], MAPX.get(ethn[2], default)[1])
 
 RAD = 0.45
 SPACING = 0.1
@@ -74,7 +76,7 @@ if __name__ == '__main__':
     ctx = cairo.Context (surface)
 
     ctx.scale (WIDTH/10, HEIGHT/10) # Normalizing the canvas
-    with open('berwynblocks.csv') as f:
+    with open('Summerdale Population - 1920 Census.csv') as f:
         reader = csv.DictReader(f)
         raw_data = [row for row in reader]
     info = collections.defaultdict(lambda: collections.defaultdict(list))
@@ -91,5 +93,5 @@ if __name__ == '__main__':
     ctx.set_source(group)
     ctx.paint()
 
-    grid_points(ctx)
+    #grid_points(ctx)
     surface.finish()
